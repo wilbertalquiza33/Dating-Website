@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Can I Date You? ❤️</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(
+                135deg, #ff9a9e, #fad0c4, #fbc2eb
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 450px;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 5px 25px #0002;
+        }
+
+        h1 {
+            color: #ff4081;
+        }
+
+        h2 {
+            color: #e91e63;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .main-photo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid pink;
+            margin: 15px;
+        }
+
+        button {
+            background: #ff4081;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            margin: 8px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #e91e63;
+        }
+
+        .no {
+            background: #999;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid pink;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            color: #e91e63;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .letter {
+            background: #fff0f5;
+            padding: 18px;
+            border-radius: 15px;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .letter p {
+            text-align: justify;
+        }
+
+        .heart {
+            font-size: 60px;
+        }
+
+        #answers {
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: left;
+            overflow-wrap: anywhere;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- FIRST PAGE -->
+
+    <section id="home">
+
+        <div class="heart">❤️</div>
+
+        <h1>Can I Date You?</h1>
+
+        <img src="image/GladysandWilbert.jpg"
+             alt="Special Person"
+             class="main-photo">
+
+        <p>
+            I have something special to ask you.
+            I've been wanting to tell you something
+            from the bottom of my heart.
+        </p>
+
+        <h2>Would you give me a chance? 🥺</h2>
+
+        <button onclick="showQuestions()">
+            YES ❤️
+        </button>
+
+        <button class="no" onclick="sayNo()">
+            NO 🙈
+        </button>
+
+        <p id="noMessage"></p>
+
+    </section>
+
+
+    <!-- QUESTIONS PAGE -->
+
+    <section id="questions" class="hidden">
+
+        <h1>YAY! ❤️</h1>
+
+        <p>
+            Before we plan our third date,
+            I have some questions for you! 🥰
+        </p>
+
+        <label>1. What should I call you?</label>
+        <input id="nickname" placeholder="Your nickname">
+
+        <label>2. When should our third date be?</label>
+        <input type="date" id="date">
+
+        <label>3. Where do you want our third date?</label>
+        <select id="place">
+            <option value="">Choose a place</option>
+            <option>Coffee Shop ☕</option>
+            <option>Restaurant 🍽️</option>
+            <option>Cinema 🎬</option>
+            <option>Beach 🌊</option>
+            <option>Mall 🛍️</option>
+            <option>Park 🌷</option>
+        </select>
+
+        <label>4. What's your favorite food?</label>
+        <input id="food" placeholder="Favorite food">
+
+        <label>5. What's your favorite drink?</label>
+        <input id="drink" placeholder="Favorite drink">
+
+        <label>6. What time should we meet?</label>
+        <input type="time" id="time">
+
+        <label>7. What's your dream date?</label>
+        <textarea id="dream"
+        placeholder="Describe your dream date..."></textarea>
+
+        <label>8. What's your favorite thing about me?</label>
+        <textarea id="favorite"
+        placeholder="Tell me honestly..."></textarea>
+
+        <label>9. What makes you happy?</label>
+        <textarea id="happy"
+        placeholder="Your answer..."></textarea>
+
+        <label>10. Do you like receiving surprises?</label>
+        <select id="surprise">
+            <option value="">Choose your answer</option>
+            <option>Yes! I love surprises! 💝</option>
+            <option>Sometimes 😊</option>
+            <option>No, I prefer simple moments.</option>
+        </select>
+
+        <label>11. What would you like us to do together?</label>
+        <textarea id="together"
+        placeholder="Your answer..."></textarea>
+
+        <label>12. Any message you want to tell me?</label>
+        <textarea id="message"
+        placeholder="Write your message here..."></textarea>
+
+        <button onclick="submitAnswers()">
+            FINISH 💌
+        </button>
+
+    </section>
+
+
+    <!-- FINAL PAGE -->
+
+    <section id="final" class="hidden">
+
+        <div class="heart">💖</div>
+
+        <h1>Our Special Date! 🥰</h1>
+
+        <h2>Here's Our Date Plan</h2>
+
+        <div id="answers"></div>
+
+        <div class="letter">
+
+            <h2>A Special Message For You 💌</h2>
+
+            <p>
+                First of all, thank you for giving me
+                the opportunity to get to know you
+                better. I want you to know that you
+                are someone special, and I am happy
+                that I had the courage to ask you
+                this question.
+            </p>
+
+            <p>
+                I may not be the perfect person, and
+                I cannot promise that every day will
+                be perfect, but I can promise to
+                respect you, appreciate you, listen
+                to you, and be honest with you.
+                I want to understand your feelings,
+                your dreams, your happiness, and even
+                the little things that make you smile.
+                I want to be there for you, support you,
+                and make you feel loved and valued.
+            </p>
+
+            <p>
+                I want to spend time with you, share
+                stories, laugh about silly things,
+                discover new places, eat our favorite
+                food, and create memories that we
+                can look back on someday.
+            </p>
+
+            <p>
+                I don't want to rush anything.
+                I believe that something meaningful
+                takes time, understanding, patience,
+                and effort from both people.
+                I want us to get to know each other
+                naturally and enjoy every moment
+                without pressure.
+            </p>
+
+            <p>
+                Whether our first date is at a coffee
+                shop, a restaurant, a cinema, or
+                somewhere simple, I hope it becomes
+                a beautiful memory for both of us.
+                What matters most is that we are
+                comfortable and happy.
+            </p>
+
+            <p>
+                Thank you for reading my message.
+                I made this little website because
+                I wanted to ask you in a different
+                and memorable way. Every word here
+                is meant sincerely.
+            </p>
+
+            <h2>
+                I hope this is the beginning of
+                something beautiful. ❤️
+            </h2>
+
+            <h3>With love and sincerity, from me. 💗</h3>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    function showQuestions() {
+
+        document.getElementById("home").classList.add("hidden");
+
+        document.getElementById("questions").classList.remove("hidden");
+
+    }
+
+    function sayNo() {
+
+        document.getElementById("noMessage").innerHTML =
+        "That's okay. I respect your answer. ❤️";
+
+    }
+
+    function submitAnswers() {
+
+        let ids = [
+            "nickname", "date", "place", "food",
+            "drink", "movie", "time", "dream",
+            "favorite", "happy", "surprise",
+            "together", "message"
+        ];
+
+        let values = ids.map(id =>
+            document.getElementById(id).value.trim()
+        );
+
+        if (values.some(value => value === "")) {
+            alert("Please answer all the questions! ❤️");
+            return;
+        }
+
+        let labels = [
+            "Nickname 💗",
+            "First Date 📅",
+            "Date Location 📍",
+            "Favorite Food 🍕",
+            "Favorite Drink 🥤",
+            "Meeting Time ⏰",
+            "Dream Date 💕",
+            "Favorite Thing About Me ❤️",
+            "What Makes You Happy 😊",
+            "Surprises 🎁",
+            "Things To Do Together 🥰",
+            "Your Message 💌"
+        ];
+
+        let output = "";
+
+        for (let i = 0; i < ids.length; i++) {
+            let paragraph = document.createElement("p");
+            let strong = document.createElement("strong");
+
+            strong.textContent = labels[i] + ": ";
+            paragraph.appendChild(strong);
+            paragraph.appendChild(
+                document.createTextNode(values[i])
+            );
+
+            document.getElementById("answers")
+                .appendChild(paragraph);
+        }
+
+        document.getElementById("questions").classList.add("hidden");
+
+        document.getElementById("final").classList.remove("hidden");
+
+        window.scrollTo(0, 0);
+    }
+
+</script>
+
+</body>
+</html>
